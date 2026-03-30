@@ -1,0 +1,43 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+dist/
+build/
+*.dll
+*.so
+*.dylib
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+*.tmp
+*.bak
+*.orig
+
+# Unity specific (for generated code testing)
+Library/
+Temp/
+Obj/
+*.csproj
+*.sln
+*.userprefs
