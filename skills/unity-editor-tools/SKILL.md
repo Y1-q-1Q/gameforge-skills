@@ -1,14 +1,14 @@
 ﻿# unity-editor-tools
 
-Create custom inspectors, editor windows, and property drawers.
+Create custom inspectors, editor windows, property drawers, and gizmos.
 
 ## When to use
 
-Activate when the user mentions: editor extensions, custom inspector, EditorWindow, PropertyDrawer, tools
+Activate when the user mentions: unity-editor-tools related topics.
 
 ## Capabilities
 
-*Full reference documentation coming soon.*
+See reference documentation for detailed patterns and production-ready code.
 
 ## Unity version support
 
@@ -20,8 +20,4 @@ Activate when the user mentions: editor extensions, custom inspector, EditorWind
 
 ## References
 
-See the `references/` directory for detailed documentation.
-
-## Limitations
-
-*Documentation in progress.*
+- [editor-tools.md](references/editor-tools.md) — Custom Inspector, PropertyDrawer, EditorWindow, Gizmos

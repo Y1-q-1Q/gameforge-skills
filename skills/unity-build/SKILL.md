@@ -1,14 +1,14 @@
 ﻿# unity-build
 
-Automate multi-platform builds and CI/CD pipelines.
+Automate multi-platform builds and CI/CD pipelines for Unity.
 
 ## When to use
 
-Activate when the user mentions: building, CI/CD, multi-platform, Android, iOS, WebGL, automation
+Activate when the user mentions: unity-build related topics.
 
 ## Capabilities
 
-*Full reference documentation coming soon.*
+See reference documentation for detailed patterns and production-ready code.
 
 ## Unity version support
 
@@ -20,8 +20,4 @@ Activate when the user mentions: building, CI/CD, multi-platform, Android, iOS, 
 
 ## References
 
-See the `references/` directory for detailed documentation.
-
-## Limitations
-
-*Documentation in progress.*
+- [build-cicd.md](references/build-cicd.md) — Build scripts, GitHub Actions, platform-specific settings

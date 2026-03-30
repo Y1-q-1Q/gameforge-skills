@@ -1,14 +1,14 @@
 ﻿# unity-audio
 
-Set up audio systems, spatial audio, and mixer configurations.
+Set up audio systems with pooled sources, mixer control, and spatial audio.
 
 ## When to use
 
-Activate when the user mentions: audio, sound, music, spatial audio, AudioMixer, FMOD, Wwise
+Activate when the user mentions: unity-audio related topics.
 
 ## Capabilities
 
-*Full reference documentation coming soon.*
+See reference documentation for detailed patterns and production-ready code.
 
 ## Unity version support
 
@@ -20,8 +20,4 @@ Activate when the user mentions: audio, sound, music, spatial audio, AudioMixer,
 
 ## References
 
-See the `references/` directory for detailed documentation.
-
-## Limitations
-
-*Documentation in progress.*
+- [audio-system.md](references/audio-system.md) — AudioManager, crossfade BGM, SFX pooling, AudioMixer setup

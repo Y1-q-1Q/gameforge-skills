@@ -4,11 +4,11 @@ Set up Unity Localization package for multi-language support.
 
 ## When to use
 
-Activate when the user mentions: localization, translation, multi-language, i18n
+Activate when the user mentions: unity-localization related topics.
 
 ## Capabilities
 
-*Full reference documentation coming soon.*
+See reference documentation for detailed patterns and production-ready code.
 
 ## Unity version support
 
@@ -20,8 +20,4 @@ Activate when the user mentions: localization, translation, multi-language, i18n
 
 ## References
 
-See the `references/` directory for detailed documentation.
-
-## Limitations
-
-*Documentation in progress.*
+- [localization-setup.md](references/localization-setup.md) — Package setup, string tables, Smart Strings, CSV workflow

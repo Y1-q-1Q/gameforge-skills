@@ -4,11 +4,11 @@ Implement ECS/DOTS architecture with Jobs System and Burst Compiler.
 
 ## When to use
 
-Activate when the user mentions: ECS, DOTS, Jobs, Burst, high-performance data-oriented design
+Activate when the user mentions: unity-ecs related topics.
 
 ## Capabilities
 
-*Full reference documentation coming soon.*
+See reference documentation for detailed patterns and production-ready code.
 
 ## Unity version support
 
@@ -20,8 +20,4 @@ Activate when the user mentions: ECS, DOTS, Jobs, Burst, high-performance data-o
 
 ## References
 
-See the `references/` directory for detailed documentation.
-
-## Limitations
-
-*Documentation in progress.*
+- [ecs-quickstart.md](references/ecs-quickstart.md) — Core concepts, minimal example, Jobs + Burst, performance comparison

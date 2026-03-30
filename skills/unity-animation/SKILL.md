@@ -1,14 +1,14 @@
 ﻿# unity-animation
 
-Configure Animator controllers, state machines, and Timeline.
+Configure Animator controllers, state machines, blend trees, Timeline, and DOTween.
 
 ## When to use
 
-Activate when the user mentions: animation setup, state machines, blend trees, Timeline, DOTween
+Activate when the user mentions: unity-animation related topics.
 
 ## Capabilities
 
-*Full reference documentation coming soon.*
+See reference documentation for detailed patterns and production-ready code.
 
 ## Unity version support
 
@@ -20,8 +20,4 @@ Activate when the user mentions: animation setup, state machines, blend trees, T
 
 ## References
 
-See the `references/` directory for detailed documentation.
-
-## Limitations
-
-*Documentation in progress.*
+- [animator-patterns.md](references/animator-patterns.md) — Animator architecture, blend trees, animation events, DOTween

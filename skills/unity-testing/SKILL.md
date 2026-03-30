@@ -1,14 +1,14 @@
 ﻿# unity-testing
 
-Set up Unity Test Framework with PlayMode and EditMode tests.
+Set up Unity Test Framework with EditMode and PlayMode tests.
 
 ## When to use
 
-Activate when the user mentions: testing, unit tests, integration tests, PlayMode, EditMode
+Activate when the user mentions: unity-testing related topics.
 
 ## Capabilities
 
-*Full reference documentation coming soon.*
+See reference documentation for detailed patterns and production-ready code.
 
 ## Unity version support
 
@@ -20,8 +20,4 @@ Activate when the user mentions: testing, unit tests, integration tests, PlayMod
 
 ## References
 
-See the `references/` directory for detailed documentation.
-
-## Limitations
-
-*Documentation in progress.*
+- [test-framework.md](references/test-framework.md) — EditMode/PlayMode tests, NUnit patterns, what to test

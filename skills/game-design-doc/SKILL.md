@@ -4,11 +4,11 @@ Create and analyze Game Design Documents (GDD).
 
 ## When to use
 
-Activate when the user mentions: GDD, game design, mechanics design, feature specs, game concept
+Activate when the user mentions: game-design-doc related topics.
 
 ## Capabilities
 
-*Full reference documentation coming soon.*
+See reference documentation for detailed patterns and production-ready code.
 
 ## Unity version support
 
@@ -20,8 +20,4 @@ Activate when the user mentions: GDD, game design, mechanics design, feature spe
 
 ## References
 
-See the `references/` directory for detailed documentation.
-
-## Limitations
-
-*Documentation in progress.*
+- [gdd-template.md](references/gdd-template.md) — Complete GDD template, mechanics analysis framework
