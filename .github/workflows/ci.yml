@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-skills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate skill structure
+        run: |
+          errors=0
+          for skill_dir in skills/*/; do
+            skill=$(basename "$skill_dir")
+            if [ ! -f "$skill_dir/SKILL.md" ]; then
+              echo "❌ $skill: missing SKILL.md"
+              errors=$((errors + 1))
+            fi
+            if [ ! -d "$skill_dir/references" ]; then
+              echo "❌ $skill: missing references/"
+              errors=$((errors + 1))
+            fi
+            ref_count=$(ls "$skill_dir/references/"*.md 2>/dev/null | wc -l)
+            if [ "$ref_count" -eq 0 ]; then
+              echo "❌ $skill: no reference files"
+              errors=$((errors + 1))
+            else
+              echo "✅ $skill: $ref_count references"
+            fi
+          done
+          if [ $errors -gt 0 ]; then exit 1; fi
+
+      - name: Check for broken internal links
+        run: |
+          for skill_dir in skills/*/; do
+            skill_md="$skill_dir/SKILL.md"
+            if [ -f "$skill_md" ]; then
+              grep -oP '\[.*?\]\((references/[^)]+)\)' "$skill_md" | grep -oP 'references/[^)]+' | while read ref; do
+                if [ ! -f "$skill_dir/$ref" ]; then
+                  echo "❌ $(basename $skill_dir): broken link to $ref"
+                  exit 1
+                fi
+              done
+            fi
+          done
+          echo "✅ All internal links valid"
