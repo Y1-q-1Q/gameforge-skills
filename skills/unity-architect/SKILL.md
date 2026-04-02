@@ -1,3 +1,96 @@
+---
+name: unity-architect
+version: 2.0.0
+description: "Generate production-ready Unity project architectures from game descriptions — folder structure, design patterns, and assembly definitions"
+engine: unity
+category: architecture
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - game_description              # genre, core mechanics, target platform
+    optional:
+      - team_size                     # solo, small, large
+      - target_platform               # mobile, pc, console
+      - unity_version                 # e.g. 2022.3, 6000.0
+      - performance_budget            # e.g. "60fps mobile"
+
+  output:
+    - type: architecture              # folder structure, design docs
+    - type: code                      # core framework scripts
+    - type: configuration             # .asmdef, project settings
+
+  context_blocks:
+    - id: architecture-selection
+      description: "Help user choose the right architecture pattern"
+      references: [architecture-patterns.md, design-patterns.md]
+    - id: project-structure
+      description: "Generate folder structure and organization"
+      references: [folder-structures.md]
+    - id: code-isolation
+      description: "Set up assembly definitions for compile times"
+      references: [assembly-definitions.md]
+
+references:
+  - file: references/architecture-patterns.md
+    relevance: [architecture, patterns, singleton, service-locator, event-bus, mvc, mvp]
+    size: 8KB
+    priority: high
+  - file: references/design-patterns.md
+    relevance: [patterns, mvc, strategy, factory, flyweight, command, observer]
+    size: 6KB
+    priority: medium
+  - file: references/folder-structures.md
+    relevance: [folders, project-setup, organization, naming, feature-based]
+    size: 8KB
+    priority: high
+  - file: references/assembly-definitions.md
+    relevance: [asmdef, compile-time, code-isolation, dependencies]
+    size: 2KB
+    priority: medium
+
+triggers:
+  keywords:
+    - "project architecture"
+    - "folder structure"
+    - "design pattern"
+    - "assembly definition"
+    - "project setup"
+    - "folder organization"
+    - "project framework"
+    - "code structure"
+  files:
+    - "Assets/Scripts/Managers/*.cs"
+    - "*.asmdef"
+    - "Assets/Scripts/*Manager.cs"
+  context:
+    - has_unity_project: true
+    - is_new_project: true
+
+composition:
+  combines_with:
+    - unity-netcode          # architecture for multiplayer games
+    - unity-performance      # performance-aware architecture
+    - unity-ecs              # DOTS architecture variant
+    - unity-addressables     # asset management structure
+    - unity-testing          # testable architecture
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - project-structure
+    - coding-conventions
+    - architecture-patterns
+
+engine_versions:
+  unity:
+    minimum: "2021.3"
+    recommended: "2022.3"
+    tested: ["2021.3", "2022.3", "6000.0"]
+  platforms: [windows, macos, linux, ios, android, webgl]
+  render_pipelines: [built-in, urp, hdrp]
+---
+
 # unity-architect
 
 Generate production-ready Unity project architectures from game descriptions.

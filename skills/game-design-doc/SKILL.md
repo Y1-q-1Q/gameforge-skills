@@ -1,3 +1,89 @@
+---
+name: game-design-doc
+version: 2.0.0
+description: "Create, analyze, and iterate on Game Design Documents (GDD) for any game genre"
+engine: any
+category: design
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - design_goal                   # create, analyze, or iterate GDD
+    optional:
+      - game_concept                  # initial concept description
+      - genre                         # rpg, fps, strategy, etc.
+      - target_audience               # casual, core, hardcore
+      - monetization_model            # f2p, premium, hybrid
+
+  output:
+    - type: architecture              # GDD document
+    - type: documentation             # Design analysis, recommendations
+
+  context_blocks:
+    - id: gdd-template
+      description: "Create complete GDD from concept"
+      references: [gdd-template.md]
+    - id: monetization-models
+      description: "Design monetization strategy"
+      references: [monetization-models.md]
+    - id: balance-design
+      description: "Create economy and progression balance"
+      references: [balance-design.md]
+
+references:
+  - file: references/gdd-template.md
+    relevance: [gdd, template, design, mechanics, core-loop, usp]
+    size: 3KB
+    priority: high
+  - file: references/monetization-models.md
+    relevance: [monetization, f2p, premium, economy, ethical]
+    size: 3KB
+    priority: medium
+  - file: references/balance-design.md
+    relevance: [balance, economy, progression, difficulty, tuning]
+    size: 4KB
+    priority: medium
+
+triggers:
+  keywords:
+    - "game design"
+    - "gdd"
+    - "game design document"
+    - "game concept"
+    - "core gameplay loop"
+    - "mechanics"
+    - "monetization"
+    - "progression"
+    - "scope"
+    - "milestone"
+    - "competitive analysis"
+    - "game pitch"
+  files:
+    - "**/GDD*.md"
+    - "**/Design*.md"
+    - "**/*Design*.docx"
+    - "docs/design/**"
+  context: {}
+
+composition:
+  combines_with:
+    - unity-architect            # technical implementation planning
+    - unity-netcode              # multiplayer design
+    - ue5-blueprint              # UE5 implementation planning
+    - ue5-multiplayer            # UE5 multiplayer design
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - game-design
+    - mechanics-analysis
+    - scope-estimation
+
+engine_versions:
+  any: {}
+  platforms: [windows, macos, linux, ios, android, webgl, playstation, xbox, switch]
+---
+
 # game-design-doc
 
 Create, analyze, and iterate on Game Design Documents (GDD) for any game genre.

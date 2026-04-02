@@ -1,3 +1,81 @@
+---
+name: unity-project-context
+version: 2.0.0
+description: "Maintain persistent project context across AI coding sessions — architecture decisions, performance baselines, and team knowledge"
+engine: unity
+category: tools
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - context_action                # snapshot, log-decision, set-baseline
+    optional:
+      - decision_description          # for logging decisions
+      - performance_metrics           # for setting baselines
+
+  output:
+    - type: architecture              # PROJECT.md, DECISIONS.md
+    - type: configuration             # .gameforge/ directory structure
+
+  context_blocks:
+    - id: context-schema
+      description: "Generate and maintain project context files"
+      references: [context-schema.md]
+    - id: decision-patterns
+      description: "Common Unity architecture decision templates"
+      references: [decision-patterns.md]
+
+references:
+  - file: references/context-schema.md
+    relevance: [context, project, snapshot, architecture, conventions]
+    size: 3KB
+    priority: high
+  - file: references/decision-patterns.md
+    relevance: [decision, adr, architecture, patterns, rationale]
+    size: 3KB
+    priority: medium
+
+triggers:
+  keywords:
+    - "project context"
+    - "project memory"
+    - "session continuity"
+    - "remember this"
+    - "architecture decision"
+    - "decision log"
+    - "performance baseline"
+    - "coding conventions"
+    - "team knowledge"
+    - "onboarding"
+  files:
+    - ".gameforge/**"
+    - "PROJECT.md"
+    - "DECISIONS.md"
+  context:
+    - has_unity_project: true
+
+composition:
+  combines_with:
+    - unity-architect            # project structure documentation
+    - unity-performance          # performance baseline tracking
+    - unity-build                # CI/CD context
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - project-knowledge
+    - decision-records
+    - session-continuity
+
+engine_versions:
+  unity:
+    minimum: "2021.3"
+    recommended: "2022.3"
+    tested: ["2021.3", "2022.3", "6000.0"]
+  platforms: [windows, macos, linux, ios, android, webgl]
+  render_pipelines: [built-in, urp, hdrp]
+---
+
 # unity-project-context
 
 Maintain persistent project context across AI coding sessions. Automatically captures architecture decisions, performance baselines, coding conventions, and team knowledge — so the AI never "forgets" your project.

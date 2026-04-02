@@ -1,3 +1,91 @@
+---
+name: unity-audio
+version: 2.0.0
+description: "Set up audio systems with pooled sources, mixer control, spatial audio, and middleware integration"
+engine: unity
+category: audio
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - audio_requirements            # what audio features are needed
+    optional:
+      - audio_middleware              # fmod, wwise, or unity
+      - target_platform               # mobile, pc, console
+      - sound_count                   # expected number of simultaneous sounds
+
+  output:
+    - type: code                      # AudioManager, pooling systems
+    - type: configuration             # AudioMixer, snapshots
+    - type: architecture              # audio system design
+
+  context_blocks:
+    - id: audio-system
+      description: "Build core audio system with pooling and mixer control"
+      references: [audio-system.md]
+    - id: adaptive-audio
+      description: "Implement dynamic music and ambient systems"
+      references: [adaptive-audio.md]
+    - id: audio-optimization
+      description: "Optimize audio for platform constraints"
+      references: [audio-optimization.md]
+
+references:
+  - file: references/audio-system.md
+    relevance: [audio, manager, pooling, crossfade, mixer, sfx, bgm]
+    size: 3KB
+    priority: high
+  - file: references/adaptive-audio.md
+    relevance: [adaptive, dynamic, music, combat, intensity, ambient]
+    size: 5KB
+    priority: medium
+  - file: references/audio-optimization.md
+    relevance: [optimization, compression, memory, streaming, platform]
+    size: 4KB
+    priority: medium
+
+triggers:
+  keywords:
+    - "audio"
+    - "sound"
+    - "sfx"
+    - "bgm"
+    - "music"
+    - "audiomixer"
+    - "spatial audio"
+    - "fmod"
+    - "wwise"
+    - "audio pooling"
+    - "crossfade"
+    - "reverb"
+  files:
+    - "**/AudioManager*.cs"
+    - "Assets/Audio/**/*.mixer"
+    - "**/*Audio*.cs"
+  context:
+    - has_unity_project: true
+
+composition:
+  combines_with:
+    - unity-performance          # audio optimization
+    - unity-addressables         # streaming audio assets
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - audio-system
+    - sound-pooling
+    - mixer-control
+
+engine_versions:
+  unity:
+    minimum: "2021.3"
+    recommended: "2022.3"
+    tested: ["2021.3", "2022.3", "6000.0"]
+  platforms: [windows, macos, linux, ios, android, webgl]
+  render_pipelines: [built-in, urp, hdrp]
+---
+
 # unity-audio
 
 Set up audio systems with pooled sources, mixer control, spatial audio, and middleware integration.

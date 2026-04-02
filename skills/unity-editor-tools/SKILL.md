@@ -1,3 +1,89 @@
+---
+name: unity-editor-tools
+version: 2.0.0
+description: "Create custom inspectors, editor windows, property drawers, gizmos, and workflow automation tools for Unity Editor"
+engine: unity
+category: tools
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - tool_requirements             # what editor tool is needed
+    optional:
+      - ui_system                     # imgui, ui-toolkit
+      - tool_type                     # inspector, window, property-drawer, gizmo
+
+  output:
+    - type: code                      # Editor scripts, tools
+    - type: configuration             # Editor settings
+    - type: architecture              # Tool architecture design
+
+  context_blocks:
+    - id: editor-tools
+      description: "Create custom inspectors, drawers, and windows"
+      references: [editor-tools.md]
+    - id: handles-scene-tools
+      description: "Build scene view tools with Handles and overlays"
+      references: [handles-scene-tools.md]
+    - id: asset-pipeline
+      description: "Automate asset pipeline with processors and hooks"
+      references: [asset-pipeline.md]
+
+references:
+  - file: references/editor-tools.md
+    relevance: [editor, inspector, property-drawer, editorwindow, imgui, ui-toolkit]
+    size: 4KB
+    priority: high
+  - file: references/handles-scene-tools.md
+    relevance: [handles, scene-view, gizmos, overlay, tools]
+    size: 4KB
+    priority: medium
+  - file: references/asset-pipeline.md
+    relevance: [asset, pipeline, postprocessor, build-hooks, automation]
+    size: 7KB
+    priority: medium
+
+triggers:
+  keywords:
+    - "editor tool"
+    - "custom inspector"
+    - "property drawer"
+    - "editor window"
+    - "gizmo"
+    - "handles"
+    - "scene view"
+    - "imgui"
+    - "ui toolkit"
+    - "asset postprocessor"
+    - "menu item"
+    - "serializedproperty"
+  files:
+    - "Assets/Editor/**/*.cs"
+    - "**/Editor/**"
+  context:
+    - has_unity_project: true
+
+composition:
+  combines_with:
+    - unity-build                # build preprocessing
+    - unity-architect            # project setup tools
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - editor-automation
+    - custom-tools
+    - workflow-optimization
+
+engine_versions:
+  unity:
+    minimum: "2021.3"
+    recommended: "2022.3"
+    tested: ["2021.3", "2022.3", "6000.0"]
+  platforms: [windows, macos, linux]
+  render_pipelines: [built-in, urp, hdrp]
+---
+
 # unity-editor-tools
 
 Create custom inspectors, editor windows, property drawers, gizmos, and workflow automation tools for Unity Editor.

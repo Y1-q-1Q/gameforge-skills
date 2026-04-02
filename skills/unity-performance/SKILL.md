@@ -1,3 +1,103 @@
+---
+name: unity-performance
+version: 2.0.0
+description: "Profile and optimize Unity game performance — CPU, GPU, memory, loading, and platform-specific budgets"
+engine: unity
+category: build
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - performance_issue             # what needs optimization
+    optional:
+      - target_platform               # mobile, pc, console
+      - profiling_data                # profiler screenshots, metrics
+      - performance_budget            # target fps, memory limit
+
+  output:
+    - type: code                      # optimization scripts, tools
+    - type: configuration             # project settings, quality tiers
+    - type: architecture              # optimization strategy
+
+  context_blocks:
+    - id: optimization-guide
+      description: "Systematic profiling and optimization workflow"
+      references: [optimization-guide.md]
+    - id: jobs-burst
+      description: "Implement Jobs System and Burst Compiler patterns"
+      references: [jobs-burst-guide.md]
+    - id: memory-management
+      description: "Optimize memory usage and asset lifecycle"
+      references: [memory-management.md]
+    - id: platform-specific
+      description: "Apply platform-specific optimizations"
+      references: [platform-specific.md]
+
+references:
+  - file: references/optimization-guide.md
+    relevance: [profiling, cpu, gpu, draw-calls, batching, overdraw, mobile]
+    size: 3KB
+    priority: high
+  - file: references/jobs-burst-guide.md
+    relevance: [jobs, burst, parallel, cpu, performance, cache-friendly]
+    size: 5KB
+    priority: medium
+  - file: references/memory-management.md
+    relevance: [memory, texture, asset, lifecycle, leak, budget]
+    size: 4KB
+    priority: high
+  - file: references/platform-specific.md
+    relevance: [platform, mobile, webgl, console, thermal, limits]
+    size: 4KB
+    priority: medium
+
+triggers:
+  keywords:
+    - "performance"
+    - "optimization"
+    - "profiling"
+    - "fps"
+    - "frame rate"
+    - "draw call"
+    - "batching"
+    - "overdraw"
+    - "gc"
+    - "garbage collection"
+    - "memory leak"
+    - "loading time"
+    - "stutter"
+    - "hitching"
+  files:
+    - "**/*Profiler*.cs"
+    - "**/*Performance*.cs"
+    - "Assets/Editor/Performance/**/*.cs"
+  context:
+    - has_unity_project: true
+
+composition:
+  combines_with:
+    - unity-ecs                  # ECS performance patterns
+    - unity-addressables         # loading optimization
+    - unity-shader               # GPU optimization
+    - unity-ui                   # UI performance
+    - unity-animation            # animation optimization
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - profiling-workflow
+    - optimization-patterns
+    - performance-budgets
+
+engine_versions:
+  unity:
+    minimum: "2021.3"
+    recommended: "2022.3"
+    tested: ["2021.3", "2022.3", "6000.0"]
+  platforms: [windows, macos, linux, ios, android, webgl]
+  render_pipelines: [built-in, urp, hdrp]
+---
+
 # unity-performance
 
 Profile and optimize Unity game performance across all platforms. Covers CPU, GPU, memory, loading, and platform-specific budgets.

@@ -1,3 +1,94 @@
+---
+name: unity-build
+version: 2.0.0
+description: "Automate multi-platform builds, CI/CD pipelines, and release workflows for Unity projects"
+engine: unity
+category: build
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - build_requirements            # platforms, automation needs
+    optional:
+      - ci_platform                   # github-actions, jenkins, gitlab
+      - distribution_target           # app-store, steam, web
+      - team_size                     # solo, small, large
+
+  output:
+    - type: code                      # build scripts, CI configs
+    - type: configuration             # project settings, quality tiers
+    - type: architecture              # build pipeline design
+
+  context_blocks:
+    - id: build-cicd
+      description: "Set up automated build and CI/CD pipelines"
+      references: [build-cicd.md]
+    - id: size-optimization
+      description: "Optimize build size for distribution"
+      references: [size-optimization.md]
+    - id: release-workflow
+      description: "Design release and distribution workflow"
+      references: [release-workflow.md]
+
+references:
+  - file: references/build-cicd.md
+    relevance: [build, cicd, github-actions, jenkins, automation, game-ci]
+    size: 3KB
+    priority: high
+  - file: references/size-optimization.md
+    relevance: [size, optimization, stripping, compression, split-apk]
+    size: 4KB
+    priority: medium
+  - file: references/release-workflow.md
+    relevance: [release, version, app-store, beta, distribution]
+    size: 3KB
+    priority: medium
+
+triggers:
+  keywords:
+    - "build"
+    - "ci/cd"
+    - "automation"
+    - "github actions"
+    - "jenkins"
+    - "gitlab"
+    - "multi-platform"
+    - "app store"
+    - "release"
+    - "version"
+    - "il2cpp"
+    - "build size"
+  files:
+    - "**/Editor/Build*.cs"
+    - ".github/workflows/*.yml"
+    - "**/Jenkinsfile"
+    - "**/BuildScripts/**"
+  context:
+    - has_unity_project: true
+
+composition:
+  combines_with:
+    - unity-addressables         # Addressables build pipeline
+    - unity-hybridclr            # hot-update build integration
+    - unity-testing              # CI test automation
+    - unity-performance          # build profiling
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - build-automation
+    - ci-cd-pipeline
+    - release-workflow
+
+engine_versions:
+  unity:
+    minimum: "2021.3"
+    recommended: "2022.3"
+    tested: ["2021.3", "2022.3", "6000.0"]
+  platforms: [windows, macos, linux, ios, android, webgl]
+  render_pipelines: [built-in, urp, hdrp]
+---
+
 # unity-build
 
 Automate multi-platform builds, CI/CD pipelines, and release workflows for Unity projects.

@@ -1,3 +1,97 @@
+---
+name: unity-shader
+version: 2.0.0
+description: "Generate ShaderLab/HLSL code for Unity's URP, HDRP, and Built-in render pipelines — shaders, VFX, and post-processing"
+engine: unity
+category: rendering
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - effect_description            # what visual effect is needed
+    optional:
+      - render_pipeline               # urp, hdrp, built-in
+      - target_platform               # mobile, pc, console
+      - performance_budget            # e.g. "60fps mobile"
+      - shader_graph_preferred        # true/false
+
+  output:
+    - type: code                      # ShaderLab/HLSL shaders
+    - type: configuration             # Shader Graph assets, materials
+
+  context_blocks:
+    - id: urp-shaders
+      description: "Generate URP-compatible shaders"
+      references: [urp-shader-patterns.md]
+    - id: effect-recipes
+      description: "Create common game visual effects"
+      references: [effect-recipes.md]
+    - id: mobile-optimization
+      description: "Optimize shaders for mobile performance"
+      references: [mobile-optimization.md]
+
+references:
+  - file: references/urp-shader-patterns.md
+    relevance: [urp, shaderlab, hlsl, patterns, templates]
+    size: 9KB
+    priority: high
+  - file: references/effect-recipes.md
+    relevance: [effects, dissolve, outline, water, toon, hologram, vfx]
+    size: 6KB
+    priority: high
+  - file: references/mobile-optimization.md
+    relevance: [mobile, optimization, performance, variants, lod, precision]
+    size: 5KB
+    priority: medium
+  - file: references/shader-math.md
+    relevance: [math, vector, matrix, noise, sdf, lighting]
+    size: 4KB
+    priority: low
+
+triggers:
+  keywords:
+    - "shader"
+    - "shaderlab"
+    - "hlsl"
+    - "shader graph"
+    - "visual effect"
+    - "post-processing"
+    - "urp"
+    - "hdrp"
+    - "material"
+    - "dissolve"
+    - "outline"
+    - "toon shading"
+  files:
+    - "Assets/Shaders/**/*.shader"
+    - "Assets/Shaders/**/*.hlsl"
+    - "Assets/Materials/**/*.mat"
+  context:
+    - has_unity_project: true
+    - has_render_pipeline: [urp, hdrp, built-in]
+
+composition:
+  combines_with:
+    - unity-performance          # shader performance optimization
+    - unity-ui                   # UI shaders and effects
+    - unity-animation            # vertex animation shaders
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - shader-code
+    - visual-effects
+    - material-setup
+
+engine_versions:
+  unity:
+    minimum: "2021.3"
+    recommended: "2022.3"
+    tested: ["2021.3", "2022.3", "6000.0"]
+  platforms: [windows, macos, linux, ios, android, webgl]
+  render_pipelines: [built-in, urp, hdrp]
+---
+
 # unity-shader
 
 Generate ShaderLab/HLSL code for Unity's URP, HDRP, and Built-in render pipelines. Create production-ready shaders, visual effects, and post-processing.

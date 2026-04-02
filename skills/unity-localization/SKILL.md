@@ -1,3 +1,91 @@
+---
+name: unity-localization
+version: 2.0.0
+description: "Set up Unity Localization package for multi-language support with string tables, asset localization, and translation workflows"
+engine: unity
+category: ui
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - localization_scope            # which content needs localization
+    optional:
+      - language_list                 # target languages
+      - translation_workflow          # csv, xliff, google-sheets
+      - rtl_required                  # true/false for Arabic/Hebrew
+      - cjk_required                  # true/false for Chinese/Japanese/Korean
+
+  output:
+    - type: configuration             # Locale settings, string tables
+    - type: code                      # Localization scripts
+    - type: architecture              # Localization workflow design
+
+  context_blocks:
+    - id: localization-setup
+      description: "Configure Localization package and string tables"
+      references: [localization-setup.md]
+    - id: cjk-rtl
+      description: "Handle CJK fonts and RTL layout"
+      references: [cjk-rtl-guide.md]
+    - id: translation-pipeline
+      description: "Set up translation workflow with external tools"
+      references: [translation-pipeline.md]
+
+references:
+  - file: references/localization-setup.md
+    relevance: [localization, string-table, smart-string, csv, locale]
+    size: 2KB
+    priority: high
+  - file: references/cjk-rtl-guide.md
+    relevance: [cjk, rtl, font, fallback, textmeshpro, arabic, hebrew]
+    size: 3KB
+    priority: medium
+  - file: references/translation-pipeline.md
+    relevance: [translation, pipeline, google-sheets, xliff, qa]
+    size: 4KB
+    priority: medium
+
+triggers:
+  keywords:
+    - "localization"
+    - "internationalization"
+    - "i18n"
+    - "multi-language"
+    - "translation"
+    - "string table"
+    - "locale"
+    - "cjk"
+    - "rtl"
+    - "font fallback"
+  files:
+    - "Assets/Localization/**"
+    - "**/Localization*.cs"
+    - "**/*Localized*.cs"
+  context:
+    - has_unity_project: true
+
+composition:
+  combines_with:
+    - unity-ui                   # localized UI text
+    - unity-addressables         # localized asset delivery
+    - unity-build                # localization in CI/CD
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - localization-system
+    - translation-workflow
+    - multi-language-support
+
+engine_versions:
+  unity:
+    minimum: "2021.3"
+    recommended: "2022.3"
+    tested: ["2021.3", "2022.3", "6000.0"]
+  platforms: [windows, macos, linux, ios, android, webgl]
+  render_pipelines: [built-in, urp, hdrp]
+---
+
 # unity-localization
 
 Set up Unity Localization package for multi-language support with string tables, asset localization, and translation workflows.

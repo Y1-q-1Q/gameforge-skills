@@ -1,3 +1,91 @@
+---
+name: unity-testing
+version: 2.0.0
+description: "Set up Unity Test Framework with EditMode and PlayMode tests, test architecture, and CI integration"
+engine: unity
+category: testing
+license: Apache-2.0
+
+interface:
+  input:
+    required:
+      - testing_scope                 # what needs testing
+    optional:
+      - test_types                    # editmode, playmode, both
+      - ci_integration                # true/false
+      - coverage_required             # true/false
+
+  output:
+    - type: code                      # test scripts, test utilities
+    - type: configuration             # test assembly definitions
+    - type: architecture              # test architecture design
+
+  context_blocks:
+    - id: test-framework
+      description: "Set up Unity Test Framework and project structure"
+      references: [test-framework.md]
+    - id: game-test-patterns
+      description: "Learn patterns for testing game systems"
+      references: [game-test-patterns.md]
+    - id: ci-testing
+      description: "Integrate tests into CI/CD pipeline"
+      references: [ci-testing.md]
+
+references:
+  - file: references/test-framework.md
+    relevance: [testing, editmode, playmode, nunit, framework]
+    size: 3KB
+    priority: high
+  - file: references/game-test-patterns.md
+    relevance: [testing, patterns, state-machine, events, async, scriptableobject]
+    size: 5KB
+    priority: high
+  - file: references/ci-testing.md
+    relevance: [ci, testing, automation, coverage, reporting]
+    size: 3KB
+    priority: medium
+
+triggers:
+  keywords:
+    - "testing"
+    - "test"
+    - "unit test"
+    - "integration test"
+    - "editmode"
+    - "playmode"
+    - "nunit"
+    - "test framework"
+    - "tdd"
+    - "code coverage"
+    - "automated test"
+  files:
+    - "Assets/Tests/**/*.cs"
+    - "**/*Tests*.cs"
+    - "**/*Test*.cs"
+  context:
+    - has_unity_project: true
+
+composition:
+  combines_with:
+    - unity-build                # CI test automation
+    - unity-architect            # testable architecture
+    - unity-performance          # performance regression tests
+  depends_on: []
+  conflicts_with: []
+  provides:
+    - test-framework
+    - test-patterns
+    - ci-testing
+
+engine_versions:
+  unity:
+    minimum: "2021.3"
+    recommended: "2022.3"
+    tested: ["2021.3", "2022.3", "6000.0"]
+  platforms: [windows, macos, linux, ios, android, webgl]
+  render_pipelines: [built-in, urp, hdrp]
+---
+
 # unity-testing
 
 Set up Unity Test Framework with EditMode and PlayMode tests, test architecture, and CI integration.
