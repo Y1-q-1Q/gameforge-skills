@@ -7,43 +7,72 @@ Thank you for your interest in contributing! 🎮
 - 🐛 **Report issues** — Found a bug in generated code? Open an issue.
 - 📝 **Improve references** — Better docs = better AI output.
 - 🆕 **Submit new skills** — See the skill development guide below.
-- 🌐 **Translations** — Help us support more languages.
+- 📦 **Create skill-packs** — Combine skills with glue logic for real scenarios.
+- 💡 **Propose changes** — Use the GFP process for new ideas.
 - ⭐ **Star the repo** — It helps others find us.
 
-## Skill Development Guide
-
-### Skill Structure
+## Skill Structure (v2)
 
 Every skill must follow this structure:
 
 ```
 skills/your-skill-name/
-├── SKILL.md              # Required: skill description and usage
+├── SKILL.md              # Required: v2 spec with YAML frontmatter
 └── references/           # Required: reference documentation
     ├── topic-1.md
     └── topic-2.md
 ```
 
-### SKILL.md Requirements
+See [SKILL-SPEC.md](SKILL-SPEC.md) for the complete v2 specification.
 
-Your SKILL.md must include:
-1. **Title and description** — What does this skill do?
-2. **When to use** — Trigger conditions
-3. **Capabilities** — What it generates
-4. **Usage examples** — Input → Output
-5. **Supported Unity versions**
-6. **References list** — Links to reference docs
-7. **Limitations** — What it can't do
+### SKILL.md v2 Requirements
 
-### Reference Documentation Requirements
+Your SKILL.md YAML frontmatter must include:
+1. **name, version, description** — identity
+2. **engine, category, license** — classification
+3. **interface** — input/output/context_blocks (LLM-agnostic)
+4. **references** — with `relevance` tags and `priority` levels
+5. **triggers** — keywords, files, context conditions
+6. **composition** — combines_with, depends_on, conflicts_with, provides
+7. **engine_versions** — compatibility matrix
 
-- Written in Markdown
-- Include working code examples (tested in Unity)
-- Follow Unity C# coding conventions
-- Include XML documentation comments in code
-- Note Unity version compatibility where relevant
+The markdown body must include:
+1. **When to use** — trigger conditions
+2. **Capabilities** — what it generates
+3. **Usage examples** — input → output
+4. **References** — links to reference docs
+5. **Limitations** — what it can't do
 
-### Code Quality Standards
+### Design Principles
+
+- **Copy-Paste ownership** — users get source code, not dependencies
+- **Vendor-neutral** — no LLM-specific prompts in skills
+- **Smart loading** — tag references so agents load only what's needed
+- **Composable** — declare how skills work together
+
+## Skill-Pack Structure
+
+```
+packs/your-pack-name/
+├── PACK.md               # Required: pack definition with YAML frontmatter
+└── glue/                  # Required: integration logic between skills
+    ├── integration-1.md
+    └── integration-2.md
+```
+
+See [PACK-SPEC.md](PACK-SPEC.md) for the complete specification.
+
+## GameForge Proposals (GFPs)
+
+For new skills, spec changes, or ecosystem improvements:
+
+1. Copy `proposals/GFP-TEMPLATE.md` to `proposals/GFP-XXXX-short-title.md`
+2. Fill in all sections
+3. Open a Pull Request
+4. Community discusses in PR comments
+5. Maintainers approve/reject with reasoning
+
+## Code Quality Standards
 
 All C# code in references must:
 - ✅ Compile without errors in Unity 2021.3+
@@ -60,7 +89,7 @@ All C# code in references must:
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feat/your-skill-name`)
-3. Follow the skill structure and quality standards
+3. Follow the v2 spec and quality standards
 4. Test your skill with at least one AI agent
 5. Submit a PR with a clear description
 
