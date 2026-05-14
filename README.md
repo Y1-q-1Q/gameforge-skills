@@ -147,6 +147,8 @@ cp -r gameforge-skills/skills/unity-netcode ~/.your-agent/skills/
 
 For professional and enterprise game development, we offer premium skills with advanced architectures and production-tested patterns.
 
+**Try the performance funnel first:** start with the free [`unity-performance-starter`](packs/unity-performance-starter/PACK.md), draft an [example diagnosis report](skills/unity-performance/references/example-diagnosis-report.md), then review the [Unity Performance Premium Wedge](proposals/UNITY-PERFORMANCE-PREMIUM-WEDGE.md) when you need repeatable report automation and validation gates.
+
 | Skill | What you get |
 |-------|-------------|
 | **unity-multiplayer-pro** | Complete multiplayer game architecture — lobby, matchmaking, rollback netcode, server authority, anti-cheat |

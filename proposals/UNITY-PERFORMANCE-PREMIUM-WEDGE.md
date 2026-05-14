@@ -7,10 +7,11 @@ Unity teams shipping mobile or cross-platform games with stutter, GC spikes, mem
 Performance failures are expensive because they appear late, are hard to reproduce, and require profiler literacy.
 
 ## Free Trust Layer
-- `unity-performance` skill
-- `mobile-performance-pack`
-- `unity-performance-starter`
-- example diagnosis report
+- [`unity-performance` skill](../skills/unity-performance/SKILL.md)
+- [`mobile-performance-pack`](../packs/mobile-performance-pack/PACK.md)
+- [`unity-performance-starter`](../packs/unity-performance-starter/PACK.md)
+- [diagnosis report workflow](../packs/unity-performance-starter/glue/diagnosis-report-workflow.md)
+- [example diagnosis report](../skills/unity-performance/references/example-diagnosis-report.md)
 
 ## Paid Outcome
 A premium report workflow that turns profiler evidence into a prioritized fix backlog with validation gates.

@@ -151,6 +151,11 @@ Activate when the user mentions:
 - [jobs-burst-guide.md](references/jobs-burst-guide.md) — C# Job System + Burst Compiler patterns for CPU-heavy workloads
 - [memory-management.md](references/memory-management.md) — Asset lifecycle, texture budgets, leak detection, platform memory limits
 - [platform-specific.md](references/platform-specific.md) — Mobile thermal, WebGL, console-specific optimization
+- [example-diagnosis-report.md](references/example-diagnosis-report.md) — Evidence-backed report template for CPU/GPU/GC/loading diagnosis
+
+## Starter pack entry
+
+For a small end-to-end diagnosis flow, use the [unity-performance-starter pack](../../packs/unity-performance-starter/PACK.md). It links this skill to a report workflow, sample report, and premium automation signals without requiring paid tooling for the manual diagnosis.
 
 ## Limitations
 
