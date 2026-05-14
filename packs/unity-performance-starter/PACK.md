@@ -11,8 +11,8 @@ install_order:
   - unity-performance
 
 glue:
-  - file: glue/example-diagnosis-report.md
-    description: "Example report structure for CPU/GPU/GC/loading performance diagnosis"
+  - file: glue/diagnosis-report-workflow.md
+    description: "Product entry workflow linking the free diagnosis report to premium automation signals"
 
 scenarios:
   - "Mobile build stutters every few seconds"
@@ -33,11 +33,12 @@ A small, tryable starter pack for Unity performance diagnosis.
 
 ## First workflow
 
-1. Capture a representative profiler trace.
-2. Identify bottleneck class: CPU, GPU, GC, loading, or memory.
-3. Fill the diagnosis report.
-4. Apply the highest-confidence low-risk fix.
-5. Re-profile on the same device.
+1. Open the [diagnosis report workflow](glue/diagnosis-report-workflow.md) and capture the required entry evidence.
+2. Capture a representative profiler trace.
+3. Identify bottleneck class: CPU, GPU, GC, loading, or memory.
+4. Fill the [example diagnosis report](../../skills/unity-performance/references/example-diagnosis-report.md).
+5. Apply the highest-confidence low-risk fix.
+6. Re-profile on the same device.
 
 ## Premium upgrade path
 
